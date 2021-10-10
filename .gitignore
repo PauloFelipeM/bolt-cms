@@ -1,52 +1,74 @@
-# Cache and logs (Symfony2)
-/app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
+# Comment out the following line, if you wish to store your SQLite database in Git
+/var/data/*
 
-# Email spool folder
-/app/spool/*
+###> bolt/core ###
+config/bolt/*_local.yaml
+config/extensions/*_local.yaml
+/config/packages/local
+/config/routes/local
+/public/files/*
+!/public/files/.gitkeep
+!/public/files/index.html
+/public/thumbs/*
+!/public/thumbs/.gitkeep
+!/public/thumbs/index.html
+###< bolt/core ###
 
-# Cache, session files and logs (Symfony3)
+### NPM and frontend assets building cruft
+node_modules/
+npm-debug.log
+yarn-error.log
+build_assets.sh
+
+### File-system cruft and temporary files
+__*
+._*
+.*.swp
+.swp
+*.lock
+!composer.lock
+!symfony.lock
+*lock.json
+.buildpath
+
+### Platfom-specific files
+.DS_Store
+thumbs.db
+Vagrantfile
+.vagrant*
+.idea
+.vscode/*
+appveyor.yml
+
+###> Docker ###
+docker-compose.override.yml
+docker-compose.override.yaml
+###< Docker ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/assets/
+/public/bundles/
 /var/cache/*
-/var/logs/*
-/var/sessions/*
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-!var/sessions/.gitkeep
-
-# Logs (Symfony4)
+!/var/cache/.gitkeep
 /var/log/*
-!var/log/.gitkeep
-
-# Parameters
-/app/config/parameters.yml
-/app/config/parameters.ini
-
-# Managed by Composer
-/app/bootstrap.php.cache
-/var/bootstrap.php.cache
-/bin/*
-!bin/console
-!bin/symfony_requirements
+!/var/log/.gitkeep
+!/var/data/.gitkeep
+/var/sessions/*
+!/var/sessions/.gitkeep
 /vendor/
-
-# Assets and user uploads
-/web/bundles/
-/web/uploads/
-
-# PHPUnit
-/app/phpunit.xml
-/phpunit.xml
-
-# Build data
-/build/
-
-# Composer PHAR
-/composer.phar
-
-# Backup entities generated with doctrine:generate:entities command
-**/Entity/*~
-
-# Embedded web-server pid file
-/.web-server-pid
+.web-server-pid
+###< symfony/framework-bundle ###
